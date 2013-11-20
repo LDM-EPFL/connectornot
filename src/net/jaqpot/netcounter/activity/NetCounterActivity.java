@@ -38,17 +38,13 @@ import net.jaqpot.netcounter.model.NetCounterModel;
 import net.jaqpot.netcounter.model.NewModelAPI;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -57,6 +53,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
@@ -121,7 +118,7 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ imple
 
 	private NetCounterApplication mApp;
 	
-	private boolean mRepMode = true;
+	private boolean mRecMode = true;
 	
 	
 
@@ -215,7 +212,7 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ imple
 //		mContainer = mApp.getAdapter(HandlerContainer.class);
 		
 		changeSendState(null);
-		mRepMode = setModeText();
+//		mRecMode = setModeText();
 
 		// Restores mCounter if needed.
 		if (savedInstanceState != null) {
@@ -461,17 +458,38 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ imple
 		mModel.addModelListener(this);
 		mModel.addOperationListener(this);
 		
-		mRepMode = setModeText();
+		mRecMode = setModeText();
 
-//		if (mModel.isLoaded()) {
-//			restoreListState();
-//			animateList();
-//		}
+		enableDirButtons(!mRecMode);
 
 		if (NetCounterApplication.LOG_ENABLED) {
 			Log.d(getClass().getName(), "Activity resumed.");
 		}
 	}
+	
+	private void enableDirButtons(boolean en) {
+		Button fwdBtn = (Button) findViewById(R.id.fwdButton);
+		Button bcdBtn = (Button) findViewById(R.id.bkwButton);
+		fwdBtn.setVisibility(en ? View.VISIBLE : View.INVISIBLE);
+		bcdBtn.setVisibility(en ? View.VISIBLE : View.INVISIBLE);
+		fwdBtn.setEnabled(en);
+		bcdBtn.setEnabled(en);
+		if (en) {
+			fwdBtn.setOnClickListener(new OnClickListener() {
+				
+				public void onClick(View v) {
+					NewModelAPI.setRepDirection(NetCounterActivity.this, true);
+				}
+			});
+			bcdBtn.setOnClickListener(new OnClickListener() {
+				
+				public void onClick(View v) {
+					NewModelAPI.setRepDirection(NetCounterActivity.this, false);					
+				}
+			});
+		}
+	}
+	
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
@@ -499,85 +517,6 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ imple
 		}
 		return "";
 	}
-
-//	private void saveListState() {
-//		SharedPreferences prefs = mApp.getAdapter(SharedPreferences.class);
-//		ExpandableListView v = getExpandableListView();
-//		Editor edit = prefs.edit();
-//		int size = mAdapter.getGroupCount();
-//		for (int i = 0; i < size; i++) {
-//			edit.putBoolean(EXPANDED_GROUP + i, v.isGroupExpanded(i));
-//		}
-//		edit.commit();
-//	}
-
-//	private void restoreListState() {
-//		SharedPreferences pref = mApp.getAdapter(SharedPreferences.class);
-//		ExpandableListView v = getExpandableListView();
-//		for (int i = 0; i < mAdapter.getGroupCount(); i++) {
-//			if (pref.getBoolean(EXPANDED_GROUP + i, false)) {
-//				v.expandGroup(i);
-//			} else {
-//				v.collapseGroup(i);
-//			}
-//		}
-//	}
-
-//	private void animateList() {
-//		AnimationSet set = new AnimationSet(true);
-//
-//		Animation animation = new AlphaAnimation(0.0f, 1.0f);
-//		animation.setDuration(150);
-//		set.addAnimation(animation);
-//
-//		animation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 1.0f,
-//				Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f,
-//				Animation.RELATIVE_TO_SELF, 0.0f);
-//		animation.setDuration(150);
-//		set.addAnimation(animation);
-//
-//		LayoutAnimationController c = new LayoutAnimationController(set, 0.5f);
-//		getExpandableListView().setLayoutAnimation(c);
-//	}
-
-	/**
-	 * Displays the What's New dialog if it is the first time the user starts the new version.
-	 */
-	private void showWhatsNewDialog() {
-		final SharedPreferences preferences = mApp.getAdapter(SharedPreferences.class);
-		final String current = getVersion();
-		// preferences.edit().remove("version").commit();
-		String version = preferences.getString("version", "");
-		// Only shows the dialog if the version strings are different.
-		if (!version.equals(current)) {
-			Builder dialog = new Builder(this);
-			dialog.setTitle(R.string.appWhatsNew);
-			dialog.setMessage(R.string.helpWhatsNew);
-			dialog.setNeutralButton(R.string.close, new OnClickListener() {
-				public void onClick(DialogInterface dialog, int which) {
-					preferences.edit().putString("version", current).commit();
-				}
-			});
-			dialog.show();
-		}
-	}
-
-//	public void modelLoaded(IModel object) {
-//		runOnUiThread(new Runnable() {
-//			public void run() {
-//				restoreListState();
-//				animateList();
-//			}
-//		});
-//	}
-
-//	public void modelChanged(IModel object) {
-//		runOnUiThread(new Runnable() {
-//			public void run() {
-//				mAdapter.notifyDataSetChanged();
-//			}
-//		});
-//	}
 
 	public void operationStarted() {
 		runOnUiThread(new Runnable() {
@@ -637,7 +576,7 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ imple
 			mModel.addModelListener(this);
 			mModel.addOperationListener(this);
 			
-			mRepMode = setModeText();
+			mRecMode = setModeText();
 		} else {
 			Log.d("DEBUG", "update = SERVICE_LOW");
 			NetCounterApplication.setUpdatePolicy(NetCounterApplication.SERVICE_LOW);

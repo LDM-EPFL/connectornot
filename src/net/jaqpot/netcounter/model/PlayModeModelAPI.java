@@ -28,10 +28,6 @@ public class PlayModeModelAPI {
 	
 	private static int sSentBytes = 0;
 	
-//	p static int getSignalStrength (Context ctx) {
-//		//FIXME
-//		return 99;
-//	}
 	
 	private static int getBytes(Context ctx) {
 		return (int)(TrafficStats.getTotalRxBytes() + TrafficStats.getTotalTxBytes());
@@ -132,7 +128,7 @@ public class PlayModeModelAPI {
 	}
 	
 	public static void clearDB(Context ctx) {
-		getDbAPI(ctx).onUpgrade(sDbAPI.getWritableDatabase(), 1, 2);
+		getDbAPI(ctx).onUpgrade(getDbAPI(ctx).getWritableDatabase(), 1, 2);
 		sSignalStrength = 0;
 		sSentBytes = 0;
 	}
@@ -178,6 +174,10 @@ public class PlayModeModelAPI {
 	
 	public static SQLiteDatabase getReadableAPI(Context ctx) {
 		return getDbAPI(ctx).getReadableDatabase();
+	}
+	
+	public static SQLiteDatabase getWritableAPI(Context ctx) {
+		return getDbAPI(ctx).getWritableDatabase();
 	}
 	
 //	public static String[] modelToStringArray(NewDataModel model) {

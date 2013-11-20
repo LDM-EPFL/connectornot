@@ -19,6 +19,7 @@
 
 package net.jaqpot.netcounter.activity;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -71,7 +72,7 @@ public class NetCounterPreferences extends PreferenceActivity {
 				d.setNegativeButton(R.string.no, null);
 				d.setPositiveButton(R.string.yes, new OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
-						importData();
+						chooseFile();
 					}
 				});
 				d.show();
@@ -103,35 +104,36 @@ public class NetCounterPreferences extends PreferenceActivity {
 			}
 		});
 	}
+	
+	private void chooseFile() {
+		Intent intent = new Intent(this, FileChooser.class);
+		ArrayList<String> extensions = new ArrayList<String>();
+		extensions.add(".csv");
+		intent.putStringArrayListExtra("filterFileExtension", extensions);
+		startActivityForResult(intent, FILE_CHOOSER);
+	}
 
 	/**
 	 * Imports the data in a separate thread.
 	 */
-	private void importData() {
-		Intent intent = new Intent(this, FileChooser.class);
-		ArrayList<String> extensions = new ArrayList<String>();
-		extensions.add(".csv");
-//		extensions.add(".xls");
-//		extensions.add(".xlsx");
-		intent.putStringArrayListExtra("filterFileExtension", extensions);
-		startActivityForResult(intent, FILE_CHOOSER);
+	private void importData(final String file) {
 		
-//		final ProgressDialog pd = ProgressDialog.show(NetCounterPreferences.this,
-//				getString(R.string.importDialogTitle), getString(R.string.importDialogText), true);
-//		final NetCounterApplication app = (NetCounterApplication) getApplication();
+		final ProgressDialog pd = ProgressDialog.show(NetCounterPreferences.this,
+				getString(R.string.importDialogTitle), getString(R.string.importDialogText), true);
+		final NetCounterApplication app = (NetCounterApplication) getApplication();
 //		final NetCounterModel m = app.getAdapter(NetCounterModel.class);
-//		HandlerContainer hdlr = app.getAdapter(HandlerContainer.class);
-//		hdlr.getSlowHandler().post(new Runnable() {
-//			public void run() {
-//					Intent intent = new Intent(NetCounterPreferences.this, FileChooser.class);
-//					ArrayList<String> extensions = new ArrayList<String>();
-//					extensions.add(".csv");
-//					intent.putStringArrayListExtra("filterFileExtension", extensions);
-//					startActivityForResult(intent, FILE_CHOOSER);
-////					m.importDataFromCsv();
-////					app.toast(R.string.importSuccessful);			
-//			}
-//		});
+		HandlerContainer hdlr = app.getAdapter(HandlerContainer.class);
+		hdlr.getSlowHandler().post(new Runnable() {
+			public void run() {
+				try {
+					NewModelAPI.importFromCsv(app, new File(file));
+//					m.importDataFromCsv();
+//					app.toast(R.string.importSuccessful);
+				} finally {
+					pd.dismiss();
+				}
+			}
+		});
 	}
 	
 	@Override
@@ -139,6 +141,9 @@ public class NetCounterPreferences extends PreferenceActivity {
     	if ((requestCode == FILE_CHOOSER) && (resultCode == -1)) {
     		String fileSelected = data.getStringExtra("fileSelected");
     		Toast.makeText(this, fileSelected, Toast.LENGTH_SHORT).show();
+    		if (fileSelected != null && fileSelected.endsWith(".csv")) {
+    			importData(fileSelected);
+    		}
     	}
     		
     }

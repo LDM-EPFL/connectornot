@@ -15,6 +15,8 @@
 	<string name="close">Close</string>
 	<string name="start">Start</string>
 	<string name="reset">Reset Data</string>
+	<string name="forward">Forward</string>
+    <string name="backward">Backward</string>
 	<string name="stop">Stop</string>
 	<string name="ip">IP</string>
 	<string name="setIP">Set IP</string>

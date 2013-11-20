@@ -45,67 +45,8 @@ public class ReplayModeModelAPI {
 	
 	private static boolean mFwdMode = true;
 	
-//	public static int getSignalStrength (Context ctx) {
-//		//FIXME
-//		return mCurrentModel.getSignalStrength();
-//	}
-//	
-//	private static int getBytes(Context ctx) {
-//		return mCurrentModel.getBytes();
-//	}
-//	
-//	private static int getCallDuration(Context ctx) {
-//		return mCurrentModel.getConvDuration();
-//	}
-//
-//	private static int getSmsCount(Context ctx) {
-//		return mCurrentModel.getSMS();
-//	}
-//	
-//	private static float getDistance(Context ctx) {
-//		return mCurrentModel.getCellDistance();
-//	}
-
-	
-//	private static void insertModel(Context ctx, NewDataModel model) {
-//		ContentValues values = new ContentValues();
-//		values.put(DatabaseAPI.MyCounter.BYTES, model.getBytes());
-//		values.put(DatabaseAPI.MyCounter.CALL_DURATION, model.getConvDuration());
-//		values.put(DatabaseAPI.MyCounter.CELL_DISTANCE, model.getCellDistance());
-//		values.put(DatabaseAPI.MyCounter.SMS_SENT, model.getSMS());
-//		values.put(DatabaseAPI.MyCounter.SIGNAL_STRENGTH, model.getSignalStrength());
-//		
-//		Log.d("DEBUG", "Inserting model in DB where BYTES = " + model.getBytes());
-//		
-//		SQLiteDatabase db = getDbAPI(ctx).getWritableDatabase();
-//		db.insert(DatabaseAPI.MyCounter.TABLE_NAME, null, values);
-//		db.close();
-//	}
-	
-//	private static NewDataModel selectLastModel(Context ctx) {
-//		SQLiteDatabase db = getDbAPI(ctx).getReadableDatabase();
-//		Cursor c = db.rawQuery("SELECT * FROM " + DatabaseAPI.MyCounter.TABLE_NAME +
-//				" ORDER BY " + DatabaseAPI.MyCounter.VALUE_TS + " DESC", null);
-//		NewDataModel model = null;
-//		
-//		if (c.moveToFirst()) {
-//			model = new NewDataModel(
-//					c.getInt(c.getColumnIndex(DatabaseAPI.MyCounter.BYTES)),
-//					c.getInt(c.getColumnIndex(DatabaseAPI.MyCounter.CALL_DURATION)),
-//					c.getInt(c.getColumnIndex(DatabaseAPI.MyCounter.SMS_SENT)),
-//					c.getInt(c.getColumnIndex(DatabaseAPI.MyCounter.SIGNAL_STRENGTH)),
-//					(float) c.getDouble(c.getColumnIndex(DatabaseAPI.MyCounter.CELL_DISTANCE)));
-//			Log.d("Debug", "Selected value among " + c.getCount() + " in DB where BYTES = " + model.getBytes()
-//					+ " TS = " + c.getString(c.getColumnIndex(DatabaseAPI.MyCounter.VALUE_TS)));
-//		}
-//		
-//		c.close();
-//		
-//		return model;
-//	}
-	
 	public static void clearDB(Context ctx) {
-		sDbAPI.onUpgrade(sDbAPI.getWritableDatabase(), 1, 2);
+		getDbAPI(ctx).onUpgrade(getDbAPI(ctx).getWritableDatabase(), 1, 2);
 //		sDbAPI = null;
 		mCurrentModel = null;
 		mCurrentLineNumber = 0;
@@ -125,13 +66,6 @@ public class ReplayModeModelAPI {
 		
 	}
 	
-//	public static void setSignalStrength(int strength) {
-//		sSignalStrength = strength;
-//	}
-//	
-//	public static void setSentBytes(int sent) {
-//		sSentBytes += sent;
-//	}
 	
 	private static DatabaseAPI getDbAPI(Context ctx) {
 		if (sDbAPI == null) {
@@ -166,7 +100,8 @@ public class ReplayModeModelAPI {
 						c.getInt(c.getColumnIndex(DatabaseAPI.MyCounter.SIGNAL_STRENGTH)),
 						(float) c.getDouble(c.getColumnIndex(DatabaseAPI.MyCounter.CELL_DISTANCE)));
 				Log.d("Debug", "Selected value among " + c.getCount() + " in DB where BYTES = " + mCurrentModel.getBytes()
-						+ " TS = " + c.getString(c.getColumnIndex(DatabaseAPI.MyCounter.VALUE_TS)));
+						+ " TS = " + c.getString(c.getColumnIndex(DatabaseAPI.MyCounter.VALUE_TS))
+						+ " (offset = " + mCurrentLineNumber + ")");
 			} else {
 				mCurrentModel = null;
 			}
@@ -178,6 +113,10 @@ public class ReplayModeModelAPI {
 	
 	public static SQLiteDatabase getReadableAPI(Context ctx) {
 		return getDbAPI(ctx).getReadableDatabase();
+	}
+	
+	public static SQLiteDatabase getWritableAPI(Context ctx) {
+		return getDbAPI(ctx).getWritableDatabase();
 	}
 	
 //	public static String[] modelToStringArray(NewDataModel model) {
