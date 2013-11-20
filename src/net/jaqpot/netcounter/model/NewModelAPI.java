@@ -21,7 +21,6 @@ package net.jaqpot.netcounter.model;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -84,11 +83,7 @@ public class NewModelAPI {
 				exportDataToCsv(writer, ctx);
 			} finally {
 				if (writer != null) {
-					try {
-						writer.close();
-					} catch (IOException e) {
-						// Ignore.
-					}
+					writer.close();
 				}
 			}
 			return s;
@@ -130,6 +125,7 @@ public class NewModelAPI {
 				sb.append(strength).append(FIELD_SEPARATOR);
 				sb.append(sms).append('\n');
 				writer.append(sb.toString());
+				writer.flush();
 			}
 		} finally {
 			c.close();
@@ -138,7 +134,7 @@ public class NewModelAPI {
 		}
 	}
 	
-	public static void importFromCsv(Context ctx, File file) {
+	public static void importFromCsv(Context ctx, File file) throws IOException {
 		//Clear data and overwrite.
 		//If writing fails we are left with an empty db.
 		Log.d("DEBUG", "Starting import from csv");
@@ -168,10 +164,6 @@ public class NewModelAPI {
 				db.setTransactionSuccessful();
 			} 
 
-		} catch (FileNotFoundException e) {
-			Log.e("NewModelAPI", "csv file not found", e);
-		} catch (IOException e) {
-			Log.e("NewModelAPI", "IO in reading csv", e);
 		} finally {
 			db.endTransaction();
 			db.close();

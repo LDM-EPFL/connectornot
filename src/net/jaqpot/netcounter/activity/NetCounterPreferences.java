@@ -37,6 +37,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 /**
@@ -97,6 +98,7 @@ public class NetCounterPreferences extends PreferenceActivity {
 					String f = NewModelAPI.exportToCsv(app);
 					app.toast(getString(R.string.exportSuccessful, f));
 				} catch (IOException e) {
+					Log.e("NetCounterPreferences", "IO in exportToCSV", e);
 					app.toast(R.string.exportFailed);
 				} finally {
 					pd.dismiss();
@@ -129,6 +131,9 @@ public class NetCounterPreferences extends PreferenceActivity {
 					NewModelAPI.importFromCsv(app, new File(file));
 //					m.importDataFromCsv();
 //					app.toast(R.string.importSuccessful);
+				} catch (IOException e) {
+					Log.e("NetCounterPreferences", "IO in importFromCSV", e);
+					app.toast(R.string.importFailed);
 				} finally {
 					pd.dismiss();
 				}

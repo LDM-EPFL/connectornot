@@ -26,12 +26,6 @@ package net.jaqpot.netcounter.model;
  */
 public class NewDataModel {
 	
-//	private static NewDataModel sInitialState;
-	
-	private static Integer sLock = 0;
-	
-//	private static long sSentBytes = 0;
-	
 	private int mBytes = 0;
 	
 	private int mConvDuration = 0;
@@ -84,18 +78,6 @@ public class NewDataModel {
 		return mCellDistance;
 	}
 
-//	public static NewDataModel getDiffToStart(NewDataModel m2) {
-//		synchronized (sLock) {			
-//			return (sInitialState == null || m2 == null) ? null :
-//				new NewDataModel(
-//					Math.abs(sInitialState.mBytes - m2.mBytes),
-//					Math.abs(sInitialState.mConvDuration - m2.mConvDuration),
-//					Math.abs(sInitialState.mSMS - m2.mSMS),
-//					Math.abs(sInitialState.mSignalStrength - m2.mSignalStrength),
-//					Math.abs(sInitialState.mCellDistance - m2.mCellDistance));
-//		}
-//	}
-	
 	public NewDataModel subtract(NewDataModel m2) {
 		return (m2 != null) ? new NewDataModel(
 				this.mBytes - m2.mBytes,
@@ -105,16 +87,5 @@ public class NewDataModel {
 				this.mCellDistance - m2.mCellDistance) : this;
 	}
 	
-//	public static void initialize(int bytes, int convDuration, int sms, int signalStrength, float cellDist) {
-//		synchronized (sLock) {
-//			sInitialState = new NewDataModel(bytes, convDuration, sms, signalStrength, cellDist);
-//		}
-//	}
-	
-//	public static void sentBytes(int bytes) {
-//		synchronized(sLock) {
-//			sInitialState.mBytes += bytes;
-//		}
-//	}
 
 }
