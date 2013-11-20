@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/header"
+		android:padding="4dip">
+
+		<ImageView
+		    android:id="@+id/icon"
+		    android:layout_width="48dip"
+		    android:layout_height="48dip"
+		    android:layout_alignParentLeft="true"
+		    android:padding="4dip"
+		    android:src="@drawable/icon" >
+
+		</ImageView>
+		<TextView android:id="@+id/title"
+		    android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/appDescription"
+			android:textSize="16sp"
+            android:textStyle="bold"
+			android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/icon"
+			android:padding="2dip"
+			android:shadowColor="#cccccc"
+			android:shadowRadius="4">
+		</TextView>
+		
+		
+
+	</RelativeLayout>
+	
+	<TextView android:id="@+id/currentMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/modeRec"
+            android:textSize="14sp"
+            android:padding="2dip"
+            android:textColor="@color/AliceBlue">
+        </TextView>
+	
+	<Button android:id="@+id/startButton"
+	  android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/start" 
+      android:onClick="changeSendState" />
+	
+	<Button android:id="@+id/rstButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/reset" 
+      android:onClick="resetData" />
+	
+	<EditText android:id="@+id/editIP"
+	  android:inputType="text"
+	  android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/ip" />
+	
+	<Button android:id="@+id/setIPButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/setIP" 
+      android:onClick="changeIP" />
+	
+	
+</LinearLayout>

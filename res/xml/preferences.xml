@@ -1,0 +1,16 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="@string/prefsCategoryAdvancedTitle">
+		<PreferenceScreen android:title="@string/prefsCatImportExportTitle"
+			android:summary="@string/prefsCatImportExportSummary">
+			<Preference android:title="@string/exportTitle"
+				android:summary="@string/exportSummary"
+				android:key="export" />
+			<Preference android:title="@string/importTitle"
+				android:summary="@string/importSummary"
+				android:key="import" />
+		</PreferenceScreen>
+		<CheckBoxPreference android:key="recMode"
+            android:title="@string/prefsModeTitle"
+            android:summary="@string/prefsModeSummary" />
+	</PreferenceCategory>
+</PreferenceScreen>
