@@ -19,6 +19,9 @@
 
 package net.jaqpot.netcounter.activity;
 
+import java.net.Inet4Address;
+import java.net.UnknownHostException;
+
 import net.jaqpot.netcounter.NetCounterApplication;
 import net.jaqpot.netcounter.R;
 import net.jaqpot.netcounter.com.SendOSC;
@@ -60,6 +63,7 @@ import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.ExpandableListContextMenuInfo;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class NetCounterActivity extends Activity/*ExpandableListActivity*/ implements IModelListener,
 		IOperation {
@@ -594,7 +598,15 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ imple
 	}
 	
 	public void changeIP(View v) {
-		SendOSC.setIP(((EditText) findViewById(R.id.editIP)).getText().toString());
+		String receivedIP = ((EditText) findViewById(R.id.editIP)).getText().toString();
+		if (receivedIP != null) {
+			try {
+				Inet4Address.getAllByName(receivedIP);
+				SendOSC.setIP(receivedIP);
+			} catch (UnknownHostException e) {
+				Toast.makeText(this, "Invalid IP", Toast.LENGTH_LONG).show();
+			}
+		}
 	}
 
 	/* (non-Javadoc)
