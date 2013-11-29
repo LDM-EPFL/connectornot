@@ -79,6 +79,8 @@ public class NetCounterApplication extends Application {
 	private SharedPreferences mPreferences;
 
 	private static int sUpdatePolicy = SERVICE_LOW;
+	
+//	private long mInter = 10 * 1000;
 
 	public static Resources resources() {
 		return RESOURCES;
@@ -184,6 +186,14 @@ public class NetCounterApplication extends Application {
 	public static synchronized int getUpdatePolicy() {
 		return sUpdatePolicy;
 	}
+	
+//	public long getInterUpdate() {
+//		return mInter;
+//	}
+//	
+//	public void setInterUpdate(long inter) {
+//		mInter = inter;
+//	}
 
 	public void toast(int message) {
 		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();

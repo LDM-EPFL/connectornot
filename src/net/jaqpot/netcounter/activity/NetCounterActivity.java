@@ -19,12 +19,8 @@
 
 package net.jaqpot.netcounter.activity;
 
-import java.net.Inet4Address;
-import java.net.UnknownHostException;
-
 import net.jaqpot.netcounter.NetCounterApplication;
 import net.jaqpot.netcounter.R;
-import net.jaqpot.netcounter.com.SendOSC;
 import net.jaqpot.netcounter.dialog.CounterAlertDialog;
 import net.jaqpot.netcounter.dialog.CounterDetailsDialog;
 import net.jaqpot.netcounter.dialog.CounterDialog;
@@ -59,11 +55,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.ExpandableListContextMenuInfo;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class NetCounterActivity extends Activity/*ExpandableListActivity*/ implements IModelListener,
 		IOperation {
@@ -215,7 +209,10 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ imple
 		mModel = mApp.getAdapter(NetCounterModel.class);
 //		mContainer = mApp.getAdapter(HandlerContainer.class);
 		
-		changeSendState(null);
+		SharedPreferences preferences = mApp.getAdapter(SharedPreferences.class);
+		
+		setStateLayout(preferences.getBoolean("shareData", false));
+//		changeSendState(null);
 //		mRecMode = setModeText();
 
 		// Restores mCounter if needed.
@@ -560,18 +557,16 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ imple
 		
 		SharedPreferences preferences = mApp.getAdapter(SharedPreferences.class);
 		
-		boolean start = preferences.getBoolean("shareData", false);
+		boolean start = !preferences.getBoolean("shareData", false);
 		
 		Editor editor = preferences.edit();
-		editor.putBoolean("shareData", !start).commit();
-//		editor.
-		
-		//FIXME boolean
-		strtButton.getBackground().setColorFilter(start ? Color.GREEN : Color.RED, PorterDuff.Mode.MULTIPLY);
-		strtButton.setText(start ? R.string.start : R.string.stop);
+		editor.putBoolean("shareData", start).commit();
+
+		strtButton.getBackground().setColorFilter(start ? Color.RED : Color.GREEN, PorterDuff.Mode.MULTIPLY);
+		strtButton.setText(start ? R.string.stop : R.string.start);
 		
 		//Switch to high/low freq data points
-		if (!start) {
+		if (start) {
 //			Log.d("DEBUG", msg)
 			NetCounterApplication.setUpdatePolicy(NetCounterApplication.SERVICE_HIGH);
 			NetCounterApplication app = (NetCounterApplication) getApplication();
@@ -593,21 +588,30 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ imple
 		
 	}
 	
+	private void setStateLayout(boolean send) {
+		
+		Button strtButton = (Button) findViewById(R.id.startButton);
+		
+		
+		strtButton.getBackground().setColorFilter(send ? Color.RED : Color.GREEN, PorterDuff.Mode.MULTIPLY);
+		strtButton.setText(send ? R.string.stop : R.string.start);
+	}
+	
 	public void resetData(View v) {
 		NewModelAPI.clearDB(this);
 	}
 	
-	public void changeIP(View v) {
-		String receivedIP = ((EditText) findViewById(R.id.editIP)).getText().toString();
-		if (receivedIP != null) {
-			try {
-				Inet4Address.getAllByName(receivedIP);
-				SendOSC.setIP(receivedIP);
-			} catch (UnknownHostException e) {
-				Toast.makeText(this, "Invalid IP", Toast.LENGTH_LONG).show();
-			}
-		}
-	}
+//	public void changeIP(View v) {
+//		String receivedIP = ((EditText) findViewById(R.id.editIP)).getText().toString();
+//		if (receivedIP != null) {
+//			try {
+//				Inet4Address.getAllByName(receivedIP);
+//				SendOSC.setIP(receivedIP);
+//			} catch (UnknownHostException e) {
+//				Toast.makeText(this, "Invalid IP", Toast.LENGTH_LONG).show();
+//			}
+//		}
+//	}
 
 	/* (non-Javadoc)
 	 * @see net.jaqpot.netcounter.model.IModelListener#modelLoaded(net.jaqpot.netcounter.model.IModel)

@@ -1,5 +1,5 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-	<PreferenceCategory android:title="@string/prefsCategoryAdvancedTitle">
+
 		<PreferenceScreen android:title="@string/prefsCatImportExportTitle"
 			android:summary="@string/prefsCatImportExportSummary">
 			<Preference android:title="@string/exportTitle"
@@ -12,5 +12,9 @@
 		<CheckBoxPreference android:key="recMode"
             android:title="@string/prefsModeTitle"
             android:summary="@string/prefsModeSummary" />
-	</PreferenceCategory>
+		<EditTextPreference android:key="inter"
+		    android:title="@string/prefsTimerTitle"
+		    android:defaultValue="10"
+		    android:inputType="number"/>
+
 </PreferenceScreen>

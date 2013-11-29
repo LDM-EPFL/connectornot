@@ -24,6 +24,7 @@
 	<string name="modeRep">Playback mode</string>
 	<string name="prefsModeTitle">Mode Selection</string>
 	<string name="prefsModeSummary">Playback</string>
+	<string name="prefsTimerTitle">Edit Send Interval</string>
 
 	<string name="helpTitle">Help</string>
 	<string name="helpClose">Close</string>

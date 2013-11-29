@@ -28,6 +28,7 @@ import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.SystemClock;
 import android.util.Log;
 
@@ -45,6 +46,8 @@ public class NetCounterAlarm {
 	}
 
 	private static final long INTER_ACTIVE = 10 * 1000;
+	
+//	private long mInter = 10 * 1000;
 
 	private static final long INTER_STANDBY = 60 * 60 * 1000;
 
@@ -109,9 +112,14 @@ public class NetCounterAlarm {
 	 */
 	private void registerActiveAlarm() {
 		mApp.notifyForDebug("Register ACTIVE alarm");
-		long t = SystemClock.elapsedRealtime() + INTER_ACTIVE;
+//		mInter = mApp.getInterUpdate();
+		SharedPreferences preferences = mApp.getAdapter(SharedPreferences.class);
+		
+		long inter = 1000 * Long.valueOf(preferences.getString("inter", Long.toString(INTER_ACTIVE)));
+		
+		long t = SystemClock.elapsedRealtime() + inter;
 		// Sets the alarm.
-		mAm.setRepeating(AlarmManager.ELAPSED_REALTIME, t, INTER_ACTIVE, mAs);
+		mAm.setRepeating(AlarmManager.ELAPSED_REALTIME, t, inter, mAs);
 		// Logging.
 		if (NetCounterApplication.LOG_ENABLED) {
 			Log.i(getClass().getName(), "Set alarm to active mode.");
