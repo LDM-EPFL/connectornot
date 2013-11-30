@@ -117,6 +117,10 @@ public class NetCounterAlarm {
 		
 		long inter = 1000 * Long.valueOf(preferences.getString("inter", Long.toString(INTER_ACTIVE)));
 		
+		if (inter <= 0) {
+			inter = INTER_ACTIVE;
+		}
+		
 		long t = SystemClock.elapsedRealtime() + inter;
 		// Sets the alarm.
 		mAm.setRepeating(AlarmManager.ELAPSED_REALTIME, t, inter, mAs);
