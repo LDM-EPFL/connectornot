@@ -123,14 +123,14 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ imple
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
-		case DIALOG_HELP: {
-			View v = LayoutInflater.from(this).inflate(R.layout.dialog, null);
-			TextView text = (TextView) v.findViewById(R.id.dialogText);
-			text.setText(R.string.helpText);
-			return new AlertDialog.Builder(this).setTitle(R.string.helpTitle).setIcon(
-					android.R.drawable.ic_menu_help).setPositiveButton(R.string.helpClose, null)
-					.setView(v).create();
-		}
+//		case DIALOG_HELP: {
+//			View v = LayoutInflater.from(this).inflate(R.layout.dialog, null);
+//			TextView text = (TextView) v.findViewById(R.id.dialogText);
+//			text.setText(R.string.helpText);
+//			return new AlertDialog.Builder(this).setTitle(R.string.helpTitle).setIcon(
+//					android.R.drawable.ic_menu_help).setPositiveButton(R.string.helpClose, null)
+//					.setView(v).create();
+//		}
 		case DIALOG_ABOUT: {
 			AlertDialog.Builder d = new AlertDialog.Builder(this);
 			d.setTitle(R.string.aboutTitle);
@@ -154,18 +154,18 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ imple
 			d.setView(v);
 			return d.create();
 		}
-		case DIALOG_DETAILS:
-			return new CounterDetailsDialog(this, mApp);
-		case DIALOG_ALERT:
-			return new CounterAlertDialog(this, mApp);
-		case DIALOG_TYPE:
-			return new CounterTypeDialog(this, mApp);
-		case DIALOG_DURATION:
-			return new CounterDurationDialog(this, mApp);
-		case DIALOG_MONTHLY:
-			return new CounterMonthlyDialog(this, mApp);
-		case DIALOG_WEEKLY:
-			return new CounterWeeklyDialog(this, mApp);
+//		case DIALOG_DETAILS:
+//			return new CounterDetailsDialog(this, mApp);
+//		case DIALOG_ALERT:
+//			return new CounterAlertDialog(this, mApp);
+//		case DIALOG_TYPE:
+//			return new CounterTypeDialog(this, mApp);
+//		case DIALOG_DURATION:
+//			return new CounterDurationDialog(this, mApp);
+//		case DIALOG_MONTHLY:
+//			return new CounterMonthlyDialog(this, mApp);
+//		case DIALOG_WEEKLY:
+//			return new CounterWeeklyDialog(this, mApp);
 		}
 		return null;
 	}

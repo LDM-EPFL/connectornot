@@ -70,7 +70,9 @@
 	<string name="aboutHomepage">Homepage</string>
 	<string name="aboutHomepageUrl">http://www.jaqpot.net/netcounter/</string>
 	<string name="aboutText">
-		Connect Or Not, arguably the perfect app, will help you visualize your data usage.
+		This application was produced as part of the \'Emperor\'s New Architecture\'
+		to provide data for practical experimentation and evaluation of spatial experiences.\n\n
+		It is based of the Netcounter app and was developed at EPFL.
 	</string>
 
 	<string name="exportTitle">Export to .csv</string>

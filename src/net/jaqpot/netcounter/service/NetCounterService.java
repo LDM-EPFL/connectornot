@@ -29,7 +29,6 @@ import net.jaqpot.netcounter.NetCounterApplication;
 import net.jaqpot.netcounter.R;
 import net.jaqpot.netcounter.activity.NetCounterActivity;
 import net.jaqpot.netcounter.com.OSCApi;
-import net.jaqpot.netcounter.com.SendOSC;
 import net.jaqpot.netcounter.model.Counter;
 import net.jaqpot.netcounter.model.Device;
 import net.jaqpot.netcounter.model.Interface;
@@ -56,7 +55,6 @@ import android.os.IBinder;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.widget.Toast;
 
 /**
  * {@link NetCounterService} is the service responsible for regular update of the model. We have to
@@ -65,6 +63,8 @@ import android.widget.Toast;
  * information.
  */
 public class NetCounterService extends WakefulService {
+	
+	public static final int NOTIFICATION_DEBUG = -1234;
 
 	private final BroadcastReceiver mWifiReceiver = new BroadcastReceiver() {
 		@Override
@@ -261,13 +261,22 @@ public class NetCounterService extends WakefulService {
 //		Integer[] coordinates = {Integer.valueOf(0), Integer.valueOf(0)};
 //		content.put("/cellcoordinates", Integer.valueOf(0));
 		
-		Toast.makeText(this, SendOSC.getIP() + "\n" +
-				  "Sending:\n" +
-					"/conversation " + modelToSend.getConvDuration() +
-					"\n/sms " + modelToSend.getSMS() +
-					"\n/data " + modelToSend.getBytes() +
-					"\n/signal " + modelToSend.getSignalStrength()
-							, Toast.LENGTH_LONG).show();
+		String debugStr = "Sending:\n" +
+				"/conversation " + modelToSend.getConvDuration() +
+				"\n/sms " + modelToSend.getSMS() +
+				"\n/data " + modelToSend.getBytes() +
+				"\n/signal " + modelToSend.getSignalStrength();
+		
+//		Toast.makeText(this, SendOSC.getIP() + "\n" + debugStr
+//							, Toast.LENGTH_LONG).show();
+		Notification n = new Notification();
+		n.when = System.currentTimeMillis();
+		n.icon = R.drawable.icon;
+		n.tickerText = debugStr;
+		Intent i = new Intent(this, NetCounterActivity.class);
+		PendingIntent p = PendingIntent.getActivity(this, 0, i, 0);
+		n.setLatestEventInfo(this, "ConnectOrNot debug", debugStr, p);
+		mApp.getAdapter(NotificationManager.class).notify(NOTIFICATION_DEBUG, n);
 		
 		OSCApi.broadcastMsg(content, new OSCApi.Handler() {
 			//TODO update DB with data sent.
