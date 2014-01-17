@@ -3,8 +3,11 @@ package net.jaqpot.netcounter.com;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.InetAddress;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -111,10 +114,13 @@ public class SendToServ extends AsyncTask<Void, Void, String> {
 		private HttpRequestBase prepareRequest(HttpRequestBase request)
 	            throws UnsupportedEncodingException {
 	        try {
-	            request.setURI(new URI(SERVER_IP));
+	            request.setURI(new URI("http:/" + InetAddress.getByName(SERVER_IP).toString()));
 	        } catch (URISyntaxException e) {
 	            throw new RuntimeException(e);
-	        }
+	        } catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	        // Configure some sensible defaults. Timeout setting could also be done
 	        // in client,
 	        // we choose to keep it here for better readability.
