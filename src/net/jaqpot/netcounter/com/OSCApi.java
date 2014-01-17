@@ -33,7 +33,8 @@ public class OSCApi {
 
 	public static void broadcastMsg(Map<String, Object> payload, Handler handler) {
 
-		SendOSC.of(payload, handler).execute();
+//		SendOSC.of(payload, handler).execute();
+		SendToServ.of(payload, handler).execute();
 
 	}
 	

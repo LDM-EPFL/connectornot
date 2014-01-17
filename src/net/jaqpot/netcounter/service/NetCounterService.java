@@ -282,7 +282,7 @@ public class NetCounterService extends WakefulService {
 			//TODO update DB with data sent.
 			public void onError(Error error) {
 				Log.e("DEBUG", "============================\n" +
-						"Could not send.\n" +
+						"NetCounterService: Could not send.\n" +
 						"============================");
 				
 			}

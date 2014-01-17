@@ -2,7 +2,7 @@
 <resources>
 
 	<string name="appName">Connect Or Not</string>
-	<string name="appDescription">Emperor\'s new traffic monitor</string>
+	<string name="appDescription">EMPEROR\'S NEW TRAFFIC MONITOR</string>
 	<string name="appAuthor">by Cyril Jaquier</string>
 	<string name="appLoading">Loading&#8230;</string>
 	<string name="appRefresh">Refresh</string>
