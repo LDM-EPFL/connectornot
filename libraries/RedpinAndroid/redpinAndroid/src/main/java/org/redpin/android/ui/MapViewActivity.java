@@ -87,6 +87,7 @@ public class MapViewActivity extends Activity {
 	private RelativeLayout mapTopBar;
 
     private View mOverlay;
+    private boolean mOverlayOn = false;
     private WindowManager.LayoutParams mParams;
 
     private boolean mRepick = false;
@@ -180,8 +181,8 @@ public class MapViewActivity extends Activity {
         mParams.x = 0;
         Log.d(TAG, "Shifting center circle by " + mapTopBar.getMeasuredHeight());
         mParams.y = mapTopBar.getMeasuredHeight();
-        windowManager.addView(mOverlay, mParams);
-
+//        windowManager.addView(mOverlay, mParams);
+        addOverlay();
 
     }
 
@@ -189,7 +190,7 @@ public class MapViewActivity extends Activity {
     public void onPause() {
         super.onPause();
         try {
-            ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(mOverlay);
+            removeOverlay();
         } catch (Exception e) {
             //This just means the crosshair wasn't here to begin with.
         }
@@ -297,7 +298,8 @@ public class MapViewActivity extends Activity {
 
 		mapView.showLocation(loc, true);
 
-        ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(mOverlay);
+//        ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(mOverlay);
+        removeOverlay();
 
         getLocConf(loc, measure).show();
 
@@ -368,7 +370,8 @@ public class MapViewActivity extends Activity {
                                                 + response.getMessage());
                             }
                         });
-                ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(mOverlay, mParams);
+//                ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(mOverlay, mParams);
+                addOverlay();
             }
         });
 
@@ -378,7 +381,8 @@ public class MapViewActivity extends Activity {
             public void onClick(View view) {
                 dialog.dismiss();
                 getTuto().show();
-                ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(mOverlay, mParams);
+//                ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(mOverlay, mParams);
+                addOverlay();
                 mRepick = true;
                 mRepickMeasure = m;
                 registerReceiver(repickReceiver, new IntentFilter(MapViewActivity.REPICK_INTENT));
@@ -389,7 +393,8 @@ public class MapViewActivity extends Activity {
         builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialogInterface) {
-                ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(mOverlay, mParams);
+//                ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(mOverlay, mParams);
+                addOverlay();
             }
         });
 
@@ -429,6 +434,8 @@ public class MapViewActivity extends Activity {
 			return;
 		}
 
+//        ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(mOverlay);
+        removeOverlay();
 		progressDialog.show();
 
 		Location location = new Location();
@@ -447,7 +454,10 @@ public class MapViewActivity extends Activity {
 	private void locate() {
         mRepick = false;
 
-//		progressDialog.show();
+        Log.d(TAG, "SHOWING progress dialog!");
+//        ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(mOverlay);
+        removeOverlay();
+		progressDialog.show();
 
 		mLocation = null;
 		mWifiService.forceMeasurement();
@@ -549,6 +559,7 @@ public class MapViewActivity extends Activity {
 
 								if (firstMeasurement) {
 									progressDialog.hide();
+                                    ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(mOverlay, mParams);
 									mapView.addNewLocation(mLocation);
 									firstMeasurement = false;
 								}
@@ -561,6 +572,8 @@ public class MapViewActivity extends Activity {
 							@Override
 							public void onFailure(Response<?> response) {
 								progressDialog.hide();
+//                                ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(mOverlay, mParams);
+                                addOverlay();
 								Log.i(TAG,
 										"addNewLocation: setFingerprint failed: "
 												+ response.getStatus() + ", "
@@ -577,7 +590,8 @@ public class MapViewActivity extends Activity {
 							@Override
 							public void onFailure(Response<?> response) {
 								progressDialog.hide();
-								
+//                                ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(mOverlay, mParams);
+								addOverlay();
 								new AlertDialog.Builder(MapViewActivity.this).setMessage(response.getMessage()).setPositiveButton(android.R.string.ok, null).create().show();
 
 							}
@@ -585,7 +599,9 @@ public class MapViewActivity extends Activity {
 							@Override
 							public void onResponse(Response<?> response) {
 								progressDialog.hide();
-								Location l = (Location) response.getData();
+//                                ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(mOverlay, mParams);
+								addOverlay();
+                                Location l = (Location) response.getData();
 								showLocation(l, m);
 
 							}
@@ -711,5 +727,19 @@ public class MapViewActivity extends Activity {
 		startActivity(search);
 		return false;
 	}
+
+    private void addOverlay() {
+        if(!mOverlayOn) {
+            ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(mOverlay, mParams);
+            mOverlayOn = true;
+        }
+    }
+
+    private void removeOverlay() {
+        if(mOverlayOn) {
+            ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(mOverlay);
+            mOverlayOn = false;
+        }
+    }
 
 }

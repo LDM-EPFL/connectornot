@@ -248,12 +248,11 @@ public class NetCounterService extends Service {
 		}
 		
 		String debugStr = "Sending:\n" +
-				"/minor " + modelToSend.getMinor() +
+                "\n/fingerprint " + modelToSend.getRPLoc() +
 				"\n/sms " + modelToSend.getSMS() +
 				"\n/data " + modelToSend.getBytes() +
-				"\n/signal " + modelToSend.getSignalStrength() +
-                "\n/fingerprint " + modelToSend.getRPLoc();
-		
+				"\n/signal " + modelToSend.getSignalStrength();
+
 		MyLog.d("DEBUG", debugStr);
 		
 //		Integer[] coordinates = {Integer.valueOf(0), Integer.valueOf(0)};
@@ -262,12 +261,12 @@ public class NetCounterService extends Service {
 		
 //		Toast.makeText(this, SendOSC.getIP() + "\n" + debugStr
 //							, Toast.LENGTH_LONG).show();
-		Notification n = new Notification();
+//		Notification n = new Notification();
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(
                 this);
 
-        n = builder.setContentIntent(
+        Notification n = builder.setContentIntent(
                 PendingIntent.getActivity(this, 0, new Intent(this, NetCounterActivity.class), 0))
                 .setSmallIcon(R.drawable.iconnc).setTicker(debugStr).setWhen(System.currentTimeMillis())
                 .setAutoCancel(true).setContentTitle("ConnectOrNot").build();
@@ -293,6 +292,8 @@ public class NetCounterService extends Service {
 
 			Map<String, Object> content = new HashMap<String, Object>();
 			content.put("dodo", jo);
+
+//            MyLog.d("NetCounterService", "fingerprint = " + modelToSend.getRPLoc());
 
 			ServApi.sendMsg(content, servHandler);
 

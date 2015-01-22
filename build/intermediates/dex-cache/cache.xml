@@ -6,7 +6,7 @@
         jar="/Users/louismagarshack/AndroidstudioProjects/connectornot/app/libs/estimote-sdk-preview.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="c5e2fb37b26dd7b57361f9225f53095841a34c3e"/>
+        sha1="27f1ef6b1d6ba4a1d982cf6bf86314a4f172a8ee"/>
     <item
         dex="/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-87f09e1dd133aa337001065586ab142fb94efa75.jar"
         jar="/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/libs/internal_impl-21.0.0.jar"
@@ -18,7 +18,7 @@
         jar="/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/connectornot.libraries.RedpinAndroid/redpinAndroid/unspecified/classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="4ecb3ec5941b17a481eaf91b1842cbcdd1d56813"/>
+        sha1="351139e90537bac923ccba4981648f3ad1fd9296"/>
     <item
         dex="/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/pre-dexed/debug/gson-1.3-7b33938a300a2923d61572a72e4118a1b6545b59.jar"
         jar="/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/connectornot.libraries.RedpinAndroid/redpinAndroid/unspecified/libs/gson-1.3.jar"

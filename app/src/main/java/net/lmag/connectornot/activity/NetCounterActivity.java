@@ -36,6 +36,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
@@ -88,12 +89,31 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ /*imp
 
     private static final String TAG = "NetCounterActivity";
 
+    private BleController mBleController;
+
 
 
 
 //	private Counter mCounter;
 
 //	private HandlerContainer mContainer;
+
+    private Handler mRedpinHandler = new Handler();
+
+    private Runnable mRedpinLocator = new Runnable() {
+        @Override
+        public void run() {
+            MyLog.d("NetCounterActivity", "Running locator.");
+            if(mServRegistered) {
+                MyLog.d("NetCounterActivity", "Forcing measurement!");
+                mWifiService.forceMeasurement();
+            }
+            mRedpinHandler.removeCallbacks(mRedpinLocator);
+            mRedpinHandler.postDelayed(mRedpinLocator,
+                    Long.valueOf(mSharedPreferences
+                            .getLong("inter", 10)) * 1000);
+        }
+    };
 
 	private NetCounterApplication mApp;
 	
@@ -112,28 +132,10 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ /*imp
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
 
+    private SharedPreferences mSharedPreferences = null;
+
 
     private Dialog getAboutDialog() {
-//        AlertDialog.Builder d = new AlertDialog.Builder(this);
-//        d.setTitle(R.string.aboutTitle);
-//        d.setIcon(android.R.drawable.ic_menu_info_details);
-//
-//        d.setPositiveButton(R.string.aboutHomepage, new DialogInterface.OnClickListener() {
-//
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                Uri uri = Uri.parse(getString(R.string.aboutHomepageUrl));
-//                startActivity(new Intent(Intent.ACTION_VIEW, uri));
-//            }
-//        });
-//        d.setNegativeButton(R.string.aboutClose, null);
-//        View v = LayoutInflater.from(this).inflate(R.layout.dialog, null);
-//        TextView text = (TextView) v.findViewById(R.id.dialogText);
-//        text.setClickable(true);
-//        text.setText(Html.fromHtml(getString(R.string.aboutText, getVersion())));
-//        text.setMovementMethod(LinkMovementMethod.getInstance());
-//        d.setView(v);
-//        return d.create();
 
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -399,8 +401,8 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ /*imp
         }
 
 
-        SharedPreferences preferences = mApp.getAdapter(SharedPreferences.class);
-        boolean send = preferences.getBoolean("shareData", false);
+        mSharedPreferences = mApp.getAdapter(SharedPreferences.class);
+        boolean send = mSharedPreferences.getBoolean("shareData", false);
         if(send) {
 //            MyLog.d("NetCounterActivity", "Starting BleController");
             NetCounterApplication.setUpdatePolicy(NetCounterApplication.SERVICE_HIGH);
@@ -409,6 +411,7 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ /*imp
             app.startService();
             startService(new Intent(this, BleController.class));
             startWifiSniffer();
+            mRedpinLocator.run();
         }
 
 
@@ -512,9 +515,9 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ /*imp
 
 	
 	private boolean setModeText() {
-		SharedPreferences preferences = mApp.getAdapter(SharedPreferences.class);
+//		SharedPreferences preferences = mApp.getAdapter(SharedPreferences.class);
 		
-		boolean recMode = preferences.getString("mode", "0").equals("0");
+		boolean recMode = mSharedPreferences.getString("mode", "0").equals("0");
 
         TextView live = (TextView) findViewById(R.id.liveMode);
         TextView playback = (TextView) findViewById(R.id.pbMode);
@@ -542,11 +545,11 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ /*imp
 		
 		ImageButton strtButton = (ImageButton) findViewById(R.id.startButton);
 		
-		SharedPreferences preferences = mApp.getAdapter(SharedPreferences.class);
+//		SharedPreferences preferences = mApp.getAdapter(SharedPreferences.class);
 		
-		boolean start = !preferences.getBoolean("shareData", false);
+		boolean start = !mSharedPreferences.getBoolean("shareData", false);
 		
-		Editor editor = preferences.edit();
+		Editor editor = mSharedPreferences.edit();
 		editor.putBoolean("shareData", start).commit();
 
         strtButton.setImageResource(start ? R.drawable.icon_stop : R.drawable.icon_play);
@@ -566,6 +569,7 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ /*imp
 			app.startService();
 			startService(new Intent(this, BleController.class));
             startWifiSniffer();
+            mRedpinLocator.run();
 //            mWifiService.forceMeasurement();
 //			startService(new Intent(this, CallDetectService.class));
 
@@ -581,6 +585,8 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ /*imp
             if(mServRegistered) {
                 stopWifiSniffer();
             }
+
+            mRedpinHandler.removeCallbacks(mRedpinLocator);
 			//app.startService();
 
 //			mModel.removeModelListener(this);
@@ -609,8 +615,8 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ /*imp
 
     public void liveClick(View v) {
         if(!mRecMode) {
-            SharedPreferences preferences = mApp.getAdapter(SharedPreferences.class);
-            Editor editor = preferences.edit();
+//            SharedPreferences preferences = mApp.getAdapter(SharedPreferences.class);
+            Editor editor = mSharedPreferences.edit();
 
             editor.putString("mode", "0");
             editor.commit();
@@ -622,8 +628,8 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ /*imp
 
     public void playbackClick(View v) {
         if(mRecMode) {
-            SharedPreferences preferences = mApp.getAdapter(SharedPreferences.class);
-            Editor editor = preferences.edit();
+//            SharedPreferences preferences = mApp.getAdapter(SharedPreferences.class);
+            Editor editor = mSharedPreferences.edit();
 
             editor.putString("mode", "1");
             editor.commit();
@@ -774,8 +780,9 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ /*imp
         public void onServiceConnected(ComponentName className, IBinder service) {
             MyLog.d(TAG, "Wifi Connection connected.");
             mWifiService = ((WifiSniffer.LocalBinder) service).getService();
-            mWifiService.forceMeasurement();
+//            mWifiService.forceMeasurement();
             mServRegistered = true;
+            mRedpinLocator.run();
         }
 
         @Override
@@ -822,7 +829,7 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ /*imp
                     CheckBox cb = (CheckBox) v;
                     if(getString(R.string.prefsOSC).equals(name)) {
                         Log.d(TAG, "OSC = " + cb.isChecked());
-                        Editor editor = mApp.getAdapter(SharedPreferences.class).edit();
+                        Editor editor = mSharedPreferences.edit();
                         editor.putBoolean("enableOSC", cb.isChecked());
                         editor.commit();
                     }
