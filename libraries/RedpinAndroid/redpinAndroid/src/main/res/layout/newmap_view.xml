@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" 
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" 
+	android:layout_gravity="center_horizontal|center_vertical"
+	android:id="@+id/newmap_view"
+	android:background="#333333"
+	>
+
+    <RelativeLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/header"
+        android:padding="4dip"
+        >
+
+        <ImageButton
+            android:id="@+id/main_icon"
+            android:layout_width="48dip"
+            android:layout_height="48dip"
+            android:layout_alignParentLeft="true"
+            android:padding="4dip"
+            android:src="@drawable/iconnc"
+            android:onClick="openDrawer">
+
+        </ImageButton>
+
+        <TextView android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connect Or Not"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20px"
+            android:layout_toRightOf="@+id/main_icon"
+            android:padding="2dip"
+            android:textColor="#d5d5d5">
+        </TextView>
+
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#333333">
+
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical" 
+		android:layout_width="match_parent"
+		android:layout_height="44dip" 
+		>
+		
+		<TextView android:layout_width="match_parent"
+			android:layout_height="44dip"
+			android:layout_centerInParent="true"
+			android:text="@string/newmap_topbar_text" 
+			android:textStyle="bold" 
+			android:gravity="center"
+            android:background="#262626"
+			android:textColor="#d5d5d5"
+			android:textSize="@dimen/font_size_for_header_text" /> 
+			
+		<Button android:layout_width="wrap_content" 
+  			android:layout_height="44dip" 
+  			android:id="@+id/save_map_button" 
+  			android:text="@string/newmap_save_map_button_text"
+  			android:layout_alignParentRight="true"
+  			android:gravity="center"
+            android:textColor="#d5d5d5"
+            android:background="@drawable/border"
+            android:padding="10dp"
+  			/>
+	</RelativeLayout>
+	
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical" 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" 
+		android:background="#333333"
+
+		>
+		<EditText android:id="@+id/map_name" 
+			android:layout_width="match_parent" 
+			android:paddingLeft="5dip"
+			android:layout_height="44dip"
+
+			android:singleLine="true"
+			android:hint="@string/newmap_hint_mapname" />
+				
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:orientation="vertical" 
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" 
+			android:background="#262626"
+			android:layout_below="@id/map_name"
+			android:id="@+id/pick_map_choices"
+			>
+				
+			<TextView android:layout_width="100dip"
+				android:layout_height="wrap_content" 
+				android:text="@string/newmap_pick_image_label_text"
+				android:id="@+id/pick_image_label"
+				android:layout_marginLeft="5dip"
+
+				android:textColor="#d5d5d5"
+                />
+				
+			<Button android:layout_width="100dip" 
+	  			android:layout_height="44dip" 
+	  			android:id="@+id/pick_image_url_button" 
+	  			android:text="@string/newmap_pick_image_url_button_text"
+                android:textColor="#d5d5d5"
+	  			android:gravity="center"
+	  			android:layout_toRightOf="@id/pick_image_label"
+                android:background="@drawable/border"/>
+	  			
+	  		<Button android:layout_width="100dip" 
+	  			android:layout_height="44dip" 
+	  			android:id="@+id/pick_image_phone_button" 
+	  			android:text="@string/newmap_pick_image_phone_button_text" 
+	  			android:gravity="center"
+	  			android:layout_toRightOf="@id/pick_image_url_button" 
+	  			android:layout_alignParentRight="true"
+                android:textColor="#d5d5d5"
+                android:background="@drawable/border"/>
+	  	</RelativeLayout>
+			
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:orientation="vertical" 
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" 
+			android:background="#333333"
+			android:id="@+id/pick_map_url_choice"
+			android:layout_below="@id/pick_map_choices" >
+			
+			<EditText android:id="@+id/map_url" 
+				android:layout_width="match_parent" 
+				android:layout_height="wrap_content"  
+				android:singleLine="true"
+				android:layout_marginLeft="5dip"
+				android:layout_marginRight="1dip"
+				android:textSize="@dimen/font_size_for_url"
+				android:hint="@string/newmap_hint_mapurl" 
+				android:visibility="invisible"/>
+	  	</RelativeLayout>
+
+    	
+    	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:orientation="vertical" 
+			android:layout_width="match_parent"
+			android:background="#333333"
+			android:layout_below="@id/pick_map_url_choice" 
+			android:layout_height="320dip"
+			>
+			<ImageView android:id="@+id/addmap_map" 
+				android:layout_width="wrap_content" 
+				android:layout_height="310dip"
+                android:background="#333333"/>
+		</RelativeLayout> 
+	</RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

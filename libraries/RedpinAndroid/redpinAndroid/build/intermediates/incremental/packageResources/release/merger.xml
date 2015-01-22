@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="main" >
+        <source path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res" >
+            <file
+                name="cross"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-hdpi/cross.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="annotation"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/annotation.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="blackbar_glossy"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/blackbar_glossy.9.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="border"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/border.xml"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="border_light"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/border_light.xml"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="crosscircle"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/crosscircle.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="current_location"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/current_location.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="icon_locate_me"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/icon_locate_me.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="iconnc"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/iconnc.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="map_ifw_a"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/map_ifw_a.gif"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="menu_addmap"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/menu_addmap.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="menu_addmap_black"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/menu_addmap_black.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="menu_list"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/menu_list.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="menu_list_black"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/menu_list_black.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="menu_locate_me"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/menu_locate_me.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="menu_locate_me_black"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/menu_locate_me_black.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="menu_search"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/menu_search.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="navigation_arrow"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/navigation_arrow.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="path2985"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/path2985.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="pin"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/pin.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="pin_active"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/pin_active.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="purple_map_pin_big"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/purple_map_pin_big.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="purple_map_pin_big_cur"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/purple_map_pin_big_cur.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="red_map_pin_big"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/red_map_pin_big.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="red_map_pin_big_cur"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/red_map_pin_big_cur.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="redpin_logo"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/redpin_logo.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="redpin_logo_glossless"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/redpin_logo_glossless.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="list_row"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/layout/list_row.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="list_row_header"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/layout/list_row_header.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="list_row_image"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/layout/list_row_image.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="list_view_rp"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/layout/list_view_rp.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="map_view"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/layout/map_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="newmap_view"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/layout/newmap_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="overlay"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/layout/overlay.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="settings_view"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/layout/settings_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="context_menu_location_list"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/menu/context_menu_location_list.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="context_menu_map_list"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/menu/context_menu_map_list.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="options_menu"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/menu/options_menu.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/values/strings.xml"
+                qualifiers="" >
+                <string name="map_view_no_map_selected" >No map selected
+                </string>
+                <string name="map_download_failed" >Download of map failed
+                </string>
+                <string name="menu_map" >Map
+                </string>
+                <string name="newmap_topbar_text" >Add Map
+                </string>
+                <string name="newmap_uploading_problem" >Couldn\'t upload the map to the server
+                </string>
+                <string name="menu_delete" >Delete
+                </string>
+                <string name="list_view_no_data" >No data
+                </string>
+                <string name="options_menu_add_map_text" >Add map
+                </string>
+                <string name="default_map_text" ></string>
+                <string name="newmap_hint_mapurl" >Map URL
+                </string>
+
+                <string-array name="main_list_items" >
+                    <item>
+Maps
+                    </item>
+                    <item>
+Locations
+                    </item>
+                </string-array>
+
+                <string name="tuto_ok" >Got it
+                </string>
+                <string name="preferences_category" >Server preferences
+                </string>
+                <string name="menu_locations" >Locations
+                </string>
+                <string name="settings_view_server_preferences" >Server preferences
+                </string>
+                <string name="redpin_authority" >org.redpin.android.provider
+                </string>
+                <string name="options_menu_listview_text" >List
+                </string>
+                <string name="newmap_pick_image_phone_button_text" >Phone
+                </string>
+                <string name="tuto" >Please navigate to your current location on the map and select the nearest pin or press "Add Fingerprint"
+                </string>
+                <string name="options_menu_locate_text" >Locate
+                </string>
+                <string name="connection_offline" >Redpin server is not reachable
+                </string>
+                <string name="newmap_pick_image_label_text" >Pick image
+                </string>
+                <string name="newmap_hint_mapname" >Map name
+                </string>
+                <string name="newmap_loading_problem" >Couldn\'t load a map from the specified URL
+                </string>
+                <string name="default_list_text" >List
+                </string>
+                <string name="yes" >Yes
+                </string>
+                <string name="no" >No
+                </string>
+                <string name="add_fingerprint" >Add Fingerprint
+                </string>
+                <string name="newmap_loading_map" >Loading map. Please wait...
+                </string>
+                <string name="options_menu_search_text" >Search
+                </string>
+                <string name="settings_view_copyright_value" >ETH Zürich 2010
+                </string>
+                <string name="locate_me" >Locate Me
+                </string>
+                <string name="connection_online" >Connected to Redpin server
+                </string>
+                <string name="conf_location" >Is this your location?
+                </string>
+                <string name="loading_text" >Loading...
+                </string>
+                <string name="newmap_uploading_map" >Uploading map. Please wait...
+                </string>
+                <string name="newmap_empty_url" >Please specify URL
+                </string>
+                <string name="settings_view_credits" >Credits:
+                </string>
+                <string name="list_view_hint_search_text" >Search text
+                </string>
+                <string name="map_view_title" >Map View
+                </string>
+                <string name="app_name" >Redpin
+                </string>
+                <string name="list_view_topbar_searchlist" >Search
+                </string>
+                <string name="newmap_empty_map_name" >Please specify the map name
+                </string>
+                <string name="settings_view_copyright" >Copyright:
+                </string>
+                <string name="newmap_save_map_button_text" >Save
+                </string>
+                <string name="port_preferences" >Port
+                </string>
+                <string name="newmap_pick_image_url_button_text" >URL
+                </string>
+                <string name="settings_view_credits_value" >Luba Rogoleva\nPascal Brogle\nArno Fiva
+                </string>
+                <string name="newmap_get_map_text" >Get map
+                </string>
+                <string name="options_menu_main_text" >Main
+                </string>
+                <string name="taking_measurement" >Taking measurement.\nPlease wait...
+                </string>
+                <string name="list_view_topbar_locationlist" >Fingerprints
+                </string>
+                <string name="newmap_map_url_label_text" >URL:
+                </string>
+                <string name="host_preferences" >Host
+                </string>
+                <string name="list_view_topbar_maplist" >Spaces
+                </string>
+            </file>
+            <file
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/values/styles.xml"
+                qualifiers="" >
+                <color name="solid_white" >#fff
+                </color>
+
+                <dimen name="font_size_for_row" >16dip
+                </dimen>
+                <dimen name="font_size_for_url" >11dip
+                </dimen>
+
+                <color name="light_grey" >#cecece
+                </color>
+                <color name="solid_black" >#000
+                </color>
+                <color name="light_black" >#333
+                </color>
+
+                <dimen name="font_size_for_header_text" >18dip
+                </dimen>
+            </file>
+            <file
+                name="preferences"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/xml/preferences.xml"
+                qualifiers=""
+                type="xml" />
+            <file
+                name="confirm_location"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/layout/confirm_location.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="tuto"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/layout/tuto.xml"
+                qualifiers=""
+                type="layout" />
+        </source>
+        <source path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/build/generated/res/rs/release" />
+        <source path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/build/generated/res/generated/release" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/release/res" />
+    </dataSet>
+
+</merger>

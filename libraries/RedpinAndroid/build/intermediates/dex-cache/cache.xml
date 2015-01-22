@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/louismagarshack/AndroidstudioProjects/RedpinAndroid/redpinAndroid/build/intermediates/pre-dexed/debug/redpinCore-02befd0eb679f293020b73db4f23679ec367a3b5.jar"
+        jar="/Users/louismagarshack/AndroidstudioProjects/RedpinAndroid/redpinCore/build/libs/redpinCore.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="bcc7a052106aed204b96794c3fd96eb0d782ffd6"/>
+    <item
+        dex="/Users/louismagarshack/AndroidstudioProjects/RedpinAndroid/redpinAndroid/build/intermediates/pre-dexed/debug/gson-1.3-c702e369bc8bf1e3df2cca86ecf9b703c93f192b.jar"
+        jar="/Users/louismagarshack/AndroidstudioProjects/RedpinAndroid/redpinAndroid/libs/gson-1.3.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="1d3853c103eed1937011c8aec4df006872c307c1"/>
+
+</pre-dex-items>

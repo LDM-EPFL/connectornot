@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="300dip"
+    android:layout_height="match_parent"
+    android:background="#333333"
+    android:padding="20dp"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        android:layout_gravity="center"
+        android:text="@string/aboutTitle"
+        android:textSize="25sp"
+        android:padding="10dp"/>
+
+    <TextView android:id="@+id/aboutText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dip"
+        android:orientation="horizontal">
+        <Button android:id="@+id/hpAbout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:textColor="@color/text_white"
+            android:text="@string/aboutHomepage"
+            android:textSize="18sp"
+            android:background="@drawable/button_border"/>
+        <Button android:id="@+id/closeAbout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:textColor="@color/text_white"
+            android:text="@string/aboutClose"
+            android:textSize="18sp"
+            android:background="@drawable/button_border"/>
+        </LinearLayout>
+</LinearLayout>

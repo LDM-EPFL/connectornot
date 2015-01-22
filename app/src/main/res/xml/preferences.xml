@@ -1,0 +1,31 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+		<PreferenceScreen android:title="@string/prefsCatImportExportTitle"
+			android:summary="@string/prefsCatImportExportSummary">
+			<Preference android:title="@string/exportTitle"
+				android:summary="@string/exportSummary"
+				android:key="export" />
+			<Preference android:title="@string/importTitle"
+				android:summary="@string/importSummary"
+				android:key="import" />
+			<Preference android:title="@string/uploadTitle"
+                android:summary="@string/uploadSummary"
+                android:key="upload" />
+		</PreferenceScreen>
+	    <ListPreference
+	        android:title="@string/prefsModeTitle"
+	        android:entries="@array/modeTypes"
+	        android:entryValues="@array/modeValues"
+	        android:key="mode" />
+		<EditTextPreference android:key="inter"
+		    android:title="@string/prefsTimerTitle"
+		    android:defaultValue="10"
+		    android:inputType="number"/>
+        <CheckBoxPreference android:title="@string/prefsOSC"
+            android:key="enableOSC"/>
+
+        <Preference android:title="@string/prefsRP"
+            android:summary="@string/prefsRPSummary"
+            android:key="@string/prefsRPKey"/>
+
+</PreferenceScreen>

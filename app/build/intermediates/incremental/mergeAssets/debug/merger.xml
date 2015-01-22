@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="21.0.0" >
+        <source path="/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/assets" />
+    </dataSet>
+    <dataSet config="21.0.0" >
+        <source path="/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/assets" />
+    </dataSet>
+    <dataSet config="unspecified" >
+        <source path="/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/connectornot.libraries.RedpinAndroid/redpinAndroid/unspecified/assets" >
+            <file
+                name="android-icon.psd"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/connectornot.libraries.RedpinAndroid/redpinAndroid/unspecified/assets/android-icon.psd" />
+        </source>
+    </dataSet>
+    <dataSet config="main" >
+        <source path="/Users/louismagarshack/AndroidstudioProjects/connectornot/app/src/main/assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/louismagarshack/AndroidstudioProjects/connectornot/app/src/debug/assets" />
+    </dataSet>
+
+</merger>

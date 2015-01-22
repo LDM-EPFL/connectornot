@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.lmag.connectornot"
+    android:versionCode="2"
+    android:versionName="1.1" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="8" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <!-- Read contacts is used to access call logs in API8 for some reason. -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="false" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
+
+    <application
+        android:name="net.lmag.connectornot.NetCounterApplication"
+        android:allowBackup="true"
+        android:allowClearUserData="true"
+        android:description="@string/appDescription"
+        android:enabled="true"
+        android:icon="@drawable/iconnc"
+        android:label="@string/appDescription"
+        android:theme="@android:style/Theme.NoTitleBar" >
+
+        <!--
+			<meta-data android:name="com.a0soft.gphone.aTrackDog.testVersion"
+			android:value="16" />
+        -->
+
+        <activity
+            android:name="net.lmag.connectornot.activity.NetCounterActivity"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="net.lmag.connectornot.activity.NetCounterPreferences"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="net.lmag.connectornot.br.com.thinkti.android.filechooser.AdvFileChooser"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="net.lmag.connectornot.br.com.thinkti.android.filechooser.FileChooser"
+            android:launchMode="singleTask" />
+
+        <service android:name="net.lmag.connectornot.service.NetCounterService" />
+        <service android:name="net.lmag.connectornot.service.BleController" />
+        <service android:name="net.lmag.connectornot.service.CallDetectService" />
+        <service
+            android:name="com.estimote.sdk.service.BeaconService"
+            android:exported="false" />
+
+        <activity
+            android:name="net.lmag.connectornot.activity.MapChooserActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="net.lmag.connectornot.activity.ImportExportActivity"
+            android:label="@string/title_activity_import_export" >
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="main" >
+        <source path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/assets" >
+            <file
+                name="android-icon.psd"
+                path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/assets/android-icon.psd" />
+        </source>
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/debug/assets" />
+    </dataSet>
+
+</merger>

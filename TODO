@@ -1,0 +1,13 @@
+Add space button in map chooser
+Display map in map chooser
+Display location in map chooser
+
+
+Parse location intent in NC act.
+Add location to DB (map ID + x,y coord)
+
+When choosing locatino from MapChooserAct, don't display the full redpin app (ie no menu or other navigation items)
+
+TODO fix out of memory error when loading a map multiple times. Recommended: sub-sample... Still does not explain why it works the first couple of times.
+There's a memory leak somewhere.
+

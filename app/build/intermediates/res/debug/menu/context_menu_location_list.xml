@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+<item android:title="@string/menu_delete" android:icon="@android:drawable/ic_menu_delete" android:id="@+id/menu_delete"></item>
+</menu>
+<!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/menu/context_menu_location_list.xml --><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/connectornot.libraries.RedpinAndroid/redpinAndroid/unspecified/res/menu/context_menu_location_list.xml -->

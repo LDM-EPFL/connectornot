@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="drawer_array">
+        <item>Import/Export CSV</item>
+        <item>Edit Send Interval</item>
+        <item>Reset Data</item>
+        <item>Location</item>
+        <item>Enable OSC</item>
+        <item>Add New Space</item>
+        <item>About</item>
+    </string-array>
+
+    <string name="del_map">Are you sure you want to delete this item?</string>
+    <string name="location">Location</string>
+    <string name="appName">Connect Or Not</string>
+    <string name="appDescription">Connect Or Not</string>
+    <string name="appAuthor">by Cyril Jaquier</string>
+    <string name="appLoading">Loading…</string>
+    <string name="appRefresh">Refresh</string>
+    <string name="appWhatsNew">What\'s new?</string>
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="close">Close</string>
+    <string name="start">Start</string>
+    <string name="reset">Reset Data</string>
+    <string name="forward">Forward</string>
+    <string name="backward">Backward</string>
+    <string name="stop">Stop</string>
+    <string name="ip">IP</string>
+    <string name="setIP">Set IP</string>
+    <string name="modeRec">Live mode</string>
+    <string name="modeRep">Playback mode</string>
+    <string name="locationButton">Locate Me</string>
+    <string name="prefsModeTitle">Mode Selection</string>
+    <string name="prefsModeSummary">Playback</string>
+    <string name="prefsTimerTitle">Edit Send Interval</string>
+    <string name="aboutTitle">About / Help </string>
+    <string name="aboutClose">Close</string>
+    <string name="aboutHomepage">Homepage</string>
+    <string name="aboutHomepageUrl">http://connectornot.emperors.kucjica.org</string>
+    <string name="aboutText">
+<![CDATA[
+		<stong>Network traffic counter for EDGE/3G/4G and Wi-Fi with localization capability.<br>Locates the device using Wi-Fi fingerprints and/or BTLE beacons. Able to send traffic counter information via OSC to other devices.<br>User can Export/Import data to/from the SD card and upload to a remote server.<br>Available in English only<br>Developed within the SINLAB research project, by Louis David Jean Magarshack in collaboration with Selena Savić</strong><br>
+Version 3.1 (2.2?)<br>
+<a href="http://www.gnu.org/copyleft/gpl.html">GNU GPL v3 License</a><br>
+<br>
+<strong>Connect or Not</strong> is produced as part of the "Emperor\'s New Architecture" doctoral research which explores the relationship between wireless communication infrastructure and the built space and structures. <strong>Connect or Not</strong> applications is used as a tool to collect data for practical experimentation and prototyping of interactive environments. Traffic counting is based on Netcounter developed by Cyril Jaquier. Localization is using the Redpin positioning system developed by Philipp Bolliger at ETH Zurich. For more information visit the <a href="http://connectornot.emperors.kucjica.org">homepage</a> <br>
+<br>
+The aim of the "Emperor\'s New Architecture" research is to analyse how wireless networks inhabit physical space. Can the presence of wireless signals define the space and its use in a similar way like physical structure does? What happens when wireless signals meet the built environment? How can we explore the electromagnetic
+space formed by our wireless communication? How can we give shape to this space?<br>ConnectOrNot actively captures your smartphone’s usage of cell towers and WIFI traffic exchange. However, it does not record or save any personal information (like websites you browse, HTTP packets, passwords, etc) It only records the quantities of data exchange. Thus, it is using your phone as an electromagnetic metering device.<br>
+Besides the traffic counter functionality, Connect or Not can be used as an indoor positioning tool, relying on user defined \'fingerprints\'. The user can use an existing map or upload a new one, to which they can add \'fingerprint\' measurements of signal-strengths of GSM, Bluetooth, and WiFi access points at their location. The system will try to locate the user according to these measurement with a precision of less then 2 meters. It is possible to add multiple measurement to a single location, which in turn improves the precision. <br>
+ConnectOrNot records the values into a database and transmits them over the network to a remote server and alternatively also using OSC protocol. It is also able to store the values in a .csv file on the SD card and upload them to a remote server. Data is stored anonymously and used for research purposes only (only if you want to contribute – no secret uploads)<br>
+To enable data transmission, press the “START” button. To end it, press “STOP”. When you want to clear the application\'s database, press “Reset data” and the app wil re-read the phone’s usage. <br>
+Connect or Not works in two modes, “LIVE” and “PLAYBACK”. In "LIVE" mode, data is transmitted directly to the server while in "PLAYBACK" mode it gets stored to the applications database on the phone. It can be then played back to the server at another time, forwards and backwards.<br>
+In the main menu, you will find options to Import/Export data to a file, change the mode between Record and Playback and set the sending interval. When exporting data, you can choose to write them to a file on your SD card or Upload to our server.<br><br> Icons made by Freepik, Google from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
+]]>
+    </string>
+    <string name="export_html">
+        <![CDATA[
+            Export to .csv<br>
+            <small>Export all data to a .csv file on the SD card.</small>
+            ]]>
+    </string>
+    <string name="import_html">
+        <![CDATA[
+            Import from .csv<br>
+            <small>Import data from a .csv file on your SD card.</small>
+            ]]>
+    </string>
+    <string name="upload_html">
+        <![CDATA[
+            Upload to server<br>
+            <small>Anonymously upload all data to the server.</small>
+            ]]>
+    </string>
+    <string name="exportTitle">Export to .csv</string>
+    <string name="exportSummary">Export all data to a .csv file on the SD card.</string>
+    <string name="exportSuccessful">Export to %1$s successful.</string>
+    <string name="exportFailed">Export failed.</string>
+    <string name="exportDialogTitle">Exporting…</string>
+    <string name="exportDialogText">Please wait while exporting data.</string>
+    <string name="uploadTitle">Upload to server</string>
+    <string name="uploadSummary">Upload all the data anonymously to our server.</string>
+    <string name="importTitle">Import from .csv</string>
+    <string name="importSummary">Import data from .csv files on the SD card.</string>
+    <string name="importSuccessful">Import successful.</string>
+    <string name="importFailed">Import failed.</string>
+    <string name="importDialogTitle">Importing…</string>
+    <string name="importDialogText">Please wait while importing data.</string>
+    <string name="importAlertText">Are you sure that you want to import the data from the SD card?</string>
+    <string name="interfaceTypeCell">Cell</string>
+    <string name="interfaceTypeWifi">Wi-Fi</string>
+    <string name="interfaceTypeBluetooth">Bluetooth</string>
+    <string name="menuInterfaceTitle">Interface</string>
+    <string name="menuInterfaceAdd">Add a counter</string>
+    <string name="menuInterfaceAddDone">New counter added</string>
+    <string name="menuInterfaceReset">Reset all</string>
+    <string name="menuInterfaceResetDone">Reset done</string>
+    <string name="menuInterfaceGraph">Show graph</string>
+    <string name="dialogInterfaceResetTitle">Reset all</string>
+    <string name="dialogInterfaceResetText">Are you sure?</string>
+    <string name="menuCounterTitle">Counter</string>
+    <string name="menuCounterChange">Change counter type</string>
+    <string name="menuCounterChangeDone">Counter type changed</string>
+    <string name="menuCounterRemove">Remove counter</string>
+    <string name="menuCounterRemoveDone">Counter removed</string>
+    <string name="menuCounterStartDate">Set start date</string>
+    <string name="menuCounterStartDay">Set start day</string>
+    <string name="menuCounterSetDuration">Set duration</string>
+    <string name="menuCounterSetAlert">Set data alert</string>
+    <string name="dialogCounterTypeTitle">Select counter type</string>
+    <string name="dialogCounterDurationTitle">Select counter duration</string>
+    <string name="dialogCounterMonthlyTitle">Select the reset date</string>
+    <string name="dialogCounterMonthlyChanged">Date changed</string>
+    <string name="dialogCounterWeeklyTitle">Select the reset day</string>
+    <string name="dialogCounterWeeklyChanged">Day changed</string>
+    <string name="dialogCounterLimitTitle">Set notification value</string>
+    <string name="dialogCounterLimitText">Set the notification limit. To disable
+		notification, just erase the value or set it to 0.</string>
+    <string name="dialogCounterLimitWrong">Wrong number format</string>
+    <string name="dialogDetailsStartDate">Start date:</string>
+    <string name="dialogDetailsEndDate">End date:</string>
+    <string name="dialogDetailsReceived">Received:</string>
+    <string name="dialogDetailsSent">Sent:</string>
+    <string name="dialogDetailsTotal">Total:</string>
+    <string name="dialogDetailsAlert">Alert:</string>
+    <string name="dialogDetailsByte">%1$s (%2$s%%)</string>
+    <string name="dialogDetailsNoAlert">no alert defined</string>
+
+    <!-- e.g. Cell exceeds the limit of 100 MB for Total -->
+    <string name="notifyExceed">%1$s exceeds the limit of %2$s %3$s for %4$s</string>
+    <!-- e.g. Cell exceeds the defined limit -->
+    <string name="notifyExceedTitle">%1$s exceeds the defined limit</string>
+
+    <!-- Preferences -->
+    <string name="preferences">Preferences</string>
+    <string name="prefsCategoryAdvancedTitle">Advanced preferences</string>
+    <string name="prefsCatImportExportTitle">Import/Export</string>
+    <string name="prefsCatImportExportSummary">Import and export your data.</string>
+    <string name="prefsWifiUpdateTitle">WiFi slow update rate</string>
+    <string name="prefsWifiUpdateSummaryOn">Update every hour. Require less power but less accurate</string>
+    <string name="prefsWifiUpdateSummaryOff">Update every 30 seconds. Require more power but more accurate</string>
+    <string name="prefsDebugTitle">Debug</string>
+    <string name="prefsDebugSummary">Show debug information in the notification area</string>
+    <string name="prefsShareTitle">Share data</string>
+    <string name="prefsOSC">Enable OSC</string>
+    <string name="prefsRP">Add New Space</string>
+    <string name="prefsRPSummary">Redpin app</string>
+    <string name="prefsRPKey">rp</string>
+
+    <!-- Graph activity -->
+    <string name="graphReceivedLabel">Received</string>
+    <string name="graphSentLabel">Sent</string>
+    <string name="graphYTitle">kBytes</string>
+    <string name="title_activity_map_chooser">Map Chooser</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_import_export">ImportExportActivity</string>
+
+</resources>
