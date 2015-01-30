@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="44dip"
         android:id="@+id/map_topbar"
-        android:background="@drawable/border">
+        android:background="@drawable/border_light">
         	
 	    <TextView android:layout_height="wrap_content"
     		android:layout_centerInParent="true" 
@@ -38,19 +38,26 @@
 	</org.redpin.android.ui.mapview.MapView>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/map_view_component">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
         android:layout_height="55dip"
         android:id="@+id/locate_button"
         android:layout_alignBottom="@+id/map_view_component"
         android:clickable="true"
         android:padding="8dip"
-        android:background="@drawable/border">
+        android:background="@drawable/border_light">
 
         <ImageView
             android:layout_width="28dip"
             android:layout_height="28dip"
             android:src="@drawable/icon_locate_me"
             android:layout_gravity="center_vertical"
+            android:layout_marginTop="2dip"
+            android:layout_marginRight="5dip"
             ></ImageView>
 
         <TextView
@@ -58,47 +65,47 @@
             android:layout_height="wrap_content"
             android:textColor="#d5d5d5"
             android:layout_gravity="center_vertical"
-
+            android:textSize="16sp"
             android:text="@string/locate_me"/>
         </LinearLayout>
 
 
     <LinearLayout
         android:id="@+id/add_location_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
         android:layout_height="55dip"
         android:orientation="horizontal"
-        android:background="@drawable/border"
+        android:background="@drawable/border_light"
         android:clickable="true"
         android:padding="8dip"
         android:layout_alignParentRight="true"
         android:layout_alignBottom="@+id/map_view_component">
+
+        <ImageView android:src="@drawable/pin"
+            android:layout_width="24dip"
+            android:layout_height="24dip"
+            android:layout_marginTop="2dip"
+            android:layout_marginRight="5dip"
+            android:layout_gravity="center_vertical"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#d5d5d5"
             android:layout_gravity="center_vertical"
-
+            android:textSize="16sp"
             android:text="@string/add_fingerprint"/>
 
-        <ImageView android:src="@drawable/pin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dip"
-            android:layout_marginTop="2dip"
-            android:layout_marginRight="5dip"
-            android:layout_gravity="center_vertical"
 
-
-            />
         </LinearLayout>
 
-
+    </LinearLayout>
 </RelativeLayout>
 
 <!-- 
 android:layout_gravity="center_vertical|center_horizontal"
     android:background="@drawable/solid_white"
     
-  --><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/layout/map_view.xml -->
+  --><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/redpinAndroid/redpinAndroid/src/main/res/layout/map_view.xml -->

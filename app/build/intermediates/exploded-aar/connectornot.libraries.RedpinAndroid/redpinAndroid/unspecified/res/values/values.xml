@@ -1,34 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/values/strings.xml -->
-    <eat-comment />
-
+    <!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/redpinAndroid/redpinAndroid/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string-array name="main_list_items">
         <item>Maps</item>
         <item>Locations</item>
     </string-array>
-    <!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/values/styles.xml -->
-    <eat-comment />
-
+    <!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/redpinAndroid/redpinAndroid/src/main/res/values/styles.xml -->
+    <eat-comment/>
     <color name="light_black">#333</color>
     <color name="light_grey">#cecece</color>
     <color name="solid_black">#000</color>
     <color name="solid_white">#fff</color>
-
     <dimen name="font_size_for_header_text">18dip</dimen>
     <dimen name="font_size_for_row">16dip</dimen>
     <dimen name="font_size_for_url">11dip</dimen>
-    <!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/values/strings.xml -->
-    <eat-comment />
-
+    <!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/redpinAndroid/redpinAndroid/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string name="add_fingerprint">Add Fingerprint</string>
     <string name="app_name">Redpin</string>
     <string name="conf_location">Is this your location?</string>
     <string name="connection_offline">Redpin server is not reachable</string>
     <string name="connection_online">Connected to Redpin server</string>
     <string name="default_list_text">List</string>
-    <string name="default_map_text"></string>
+    <string name="default_map_text"/>
     <string name="host_preferences">Host</string>
     <string name="list_view_hint_search_text">Search text</string>
     <string name="list_view_no_data">No data</string>
@@ -76,5 +71,4 @@
     <string name="tuto">Please navigate to your current location on the map and select the nearest pin or press "Add Fingerprint"</string>
     <string name="tuto_ok">Got it</string>
     <string name="yes">Yes</string>
-
 </resources>

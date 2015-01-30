@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="rpcore">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libraries/RedpinAndroid/redpinAndroid/libs/rpcore.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/redpinAndroid/redpinAndroid/libs/rpcore.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -271,7 +271,7 @@ public class MapView extends FrameLayout implements DownloadImageTaskCallback,
 //        options.inJustDecodeBounds = true;
 //        BitmapFactory.decodeFile(path, options);
 
-
+        imageView.destroy();
 
 		Bitmap bm = BitmapFactory.decodeFile(path);
 		imageWidth = bm.getWidth();
@@ -801,6 +801,7 @@ public class MapView extends FrameLayout implements DownloadImageTaskCallback,
 
     public void deleteImage() {
         imageView.destroy();
+//        imageView = null;
     }
 
 	/*

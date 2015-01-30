@@ -82,6 +82,7 @@
                 android:layout_height="50dip"
                 android:id="@+id/footer"
                 android:layout_below="@android:id/list"
+
                 android:visibility="gone"/>
         </RelativeLayout>
 		<!-- <View android:layout_width="match_parent" android:layout_height="1dip" android:background="@color/light_grey"></View>  -->
@@ -97,4 +98,4 @@
 
 	</LinearLayout>
 
-</LinearLayout><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/layout/list_view_rp.xml -->
+</LinearLayout><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/redpinAndroid/redpinAndroid/src/main/res/layout/list_view_rp.xml -->

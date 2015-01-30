@@ -20,7 +20,6 @@
 package net.lmag.connectornot.activity;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
@@ -748,7 +747,7 @@ public class NetCounterActivity extends Activity/*ExpandableListActivity*/ /*imp
                             public void onFailure(Response<?> response) {
 //                                progressDialog.hide();
 
-                                new AlertDialog.Builder(NetCounterActivity.this).setMessage(response.getMessage()).setPositiveButton(android.R.string.ok, null).create().show();
+//                                new AlertDialog.Builder(NetCounterActivity.this).setMessage(response.getMessage()).setPositiveButton(android.R.string.ok, null).create().show();
 
                             }
 

@@ -14,4 +14,4 @@
     	  android:title="@string/options_menu_locate_text"
     	  android:icon="@drawable/menu_locate_me_black" />
 </menu>
-<!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/menu/options_menu.xml --><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/connectornot.libraries.RedpinAndroid/redpinAndroid/unspecified/res/menu/options_menu.xml -->
+<!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/redpinAndroid/redpinAndroid/src/main/res/menu/options_menu.xml --><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/connectornot.libraries.RedpinAndroid/redpinAndroid/unspecified/res/menu/options_menu.xml -->

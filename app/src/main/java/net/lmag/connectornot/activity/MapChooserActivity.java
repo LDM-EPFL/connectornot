@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.database.Cursor;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
@@ -61,11 +60,11 @@ public class MapChooserActivity extends ListActivity implements
         foot.setText("Add Space");
         foot.setTextSize(17);
         foot.setPadding(5, 5, 5, 5);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.L) {
-            foot.setBackground(getDrawable(R.drawable.button_border));
-        } else {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            foot.setBackground(getDrawable(R.drawable.button_border));
+//        } else {
             foot.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_border));
-        }
+//        }
 //        foot.setBackgroundColor(Color.TRANSPARENT);
         foot.setTextColor(getResources().getColor(R.color.text_white));
 

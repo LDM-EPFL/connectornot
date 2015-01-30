@@ -13,4 +13,4 @@
             android:background="#333333" android:layout_width="match_parent" android:paddingRight="20dip" android:text="Label" android:gravity="center_vertical"/>
 
 </RelativeLayout>
-<!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/layout/list_row.xml --><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/connectornot.libraries.RedpinAndroid/redpinAndroid/unspecified/res/layout/list_row.xml -->
+<!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/redpinAndroid/redpinAndroid/src/main/res/layout/list_row.xml --><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/connectornot.libraries.RedpinAndroid/redpinAndroid/unspecified/res/layout/list_row.xml -->

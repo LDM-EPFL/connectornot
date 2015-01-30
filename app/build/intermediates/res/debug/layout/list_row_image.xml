@@ -19,4 +19,4 @@
 			android:layout_alignParentRight="true" android:layout_marginRight="10dip" android:layout_centerVertical="true"/>
 
 </RelativeLayout>
-<!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/layout/list_row_image.xml --><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/connectornot.libraries.RedpinAndroid/redpinAndroid/unspecified/res/layout/list_row_image.xml -->
+<!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/redpinAndroid/redpinAndroid/src/main/res/layout/list_row_image.xml --><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/connectornot.libraries.RedpinAndroid/redpinAndroid/unspecified/res/layout/list_row_image.xml -->

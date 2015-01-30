@@ -38,4 +38,4 @@
             android:textSize="16sp"
             android:background="@drawable/border_light"/>
     </LinearLayout>
-</LinearLayout><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/layout/confirm_location.xml -->
+</LinearLayout><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/redpinAndroid/redpinAndroid/src/main/res/layout/confirm_location.xml -->

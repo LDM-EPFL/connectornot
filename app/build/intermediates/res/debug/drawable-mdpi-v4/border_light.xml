@@ -6,4 +6,4 @@
         android:angle="270" />
 
     <stroke android:width="1px" android:color="#d5d5d5" />
-</shape><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/RedpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/border_light.xml --><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/connectornot.libraries.RedpinAndroid/redpinAndroid/unspecified/res/drawable-mdpi-v4/border_light.xml -->
+</shape><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/libraries/redpinAndroid/redpinAndroid/src/main/res/drawable-mdpi/border_light.xml --><!-- From: file:/Users/louismagarshack/AndroidstudioProjects/connectornot/app/build/intermediates/exploded-aar/connectornot.libraries.RedpinAndroid/redpinAndroid/unspecified/res/drawable-mdpi-v4/border_light.xml -->

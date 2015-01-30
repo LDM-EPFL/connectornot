@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/connectornot.iml" filepath="$PROJECT_DIR$/connectornot.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libraries/RedpinAndroid/redpinAndroid/redpinAndroid.iml" filepath="$PROJECT_DIR$/libraries/RedpinAndroid/redpinAndroid/redpinAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/redpinAndroid/redpinAndroid/redpinAndroid.iml" filepath="$PROJECT_DIR$/libraries/redpinAndroid/redpinAndroid/redpinAndroid.iml" />
     </modules>
   </component>
 </project>

@@ -93,6 +93,8 @@ public class MapViewActivity extends Activity {
     private boolean mRepick = false;
     private Measurement mRepickMeasure = null;
 
+    private boolean mFirstTuto = true;
+
 
 	/**
 	 * {@inheritDoc}
@@ -156,7 +158,7 @@ public class MapViewActivity extends Activity {
 		setOnlineMode(false);
 
 
-		restoreState();
+//		restoreState();
 
 		show();
 
@@ -240,6 +242,7 @@ public class MapViewActivity extends Activity {
 
 		preferences.edit().clear().commit();
 
+
 	}
 
 	/**
@@ -247,7 +250,7 @@ public class MapViewActivity extends Activity {
 	 */
 	@Override
 	protected void onDestroy() {
-		saveState();
+//		saveState();
 
         Log.i(TAG, "destroying map view");
         mapView.deleteImage();
@@ -380,7 +383,10 @@ public class MapViewActivity extends Activity {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
-                getTuto().show();
+                if(mFirstTuto) {
+                    getTuto().show();
+                    mFirstTuto = false;
+                }
 //                ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(mOverlay, mParams);
                 addOverlay();
                 mRepick = true;
@@ -559,7 +565,8 @@ public class MapViewActivity extends Activity {
 
 								if (firstMeasurement) {
 									progressDialog.hide();
-                                    ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(mOverlay, mParams);
+                                    addOverlay();
+//                                    ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(mOverlay, mParams);
 									mapView.addNewLocation(mLocation);
 									firstMeasurement = false;
 								}
@@ -592,7 +599,7 @@ public class MapViewActivity extends Activity {
 								progressDialog.hide();
 //                                ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(mOverlay, mParams);
 								addOverlay();
-								new AlertDialog.Builder(MapViewActivity.this).setMessage(response.getMessage()).setPositiveButton(android.R.string.ok, null).create().show();
+//								new AlertDialog.Builder(MapViewActivity.this).setMessage(response.getMessage()).setPositiveButton(android.R.string.ok, null).create().show();
 
 							}
 
